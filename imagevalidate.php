@@ -8,15 +8,19 @@ define('CIVICRM_IMAGEVALIDATE_SETTINGS_GROUP', 'Image Validation Preferences');
  * Implementation of hook_civicrm_config
  */
 function imagevalidate_civicrm_config(&$config) {
-  global $civicrm_setting;
 
   // Expose as civicrm Settings, so that it will be easier to write an admin UI later on
-  $civicrm_setting[CIVICRM_IMAGEVALIDATE_SETTINGS_GROUP] = array(
-    'minWidth' => 0,
-    'minHeight' => 0,
-    'maxWidth' => 2000,
-    'minHeight' => 2000,
-  );
+  // You can override this by declaring this in your civicrm.settings.php
+  global $civicrm_setting;
+
+  if (empty($civicrm_setting[CIVICRM_IMAGEVALIDATE_SETTINGS_GROUP])) {
+    $civicrm_setting[CIVICRM_IMAGEVALIDATE_SETTINGS_GROUP] = array(
+      'minWidth' => 0,
+      'minHeight' => 0,
+      'maxWidth' => 2000,
+      'minHeight' => 2000,
+    );
+  }
 
   _imagevalidate_civix_civicrm_config($config);
 }
