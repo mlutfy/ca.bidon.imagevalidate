@@ -107,7 +107,7 @@ function imagevalidate_civicrm_validateForm($formName, &$fields, &$files, &$form
   $maxWidth = CRM_Core_BAO_Setting::getItem(CIVICRM_IMAGEVALIDATE_SETTINGS_GROUP, 'maxWidth');
   $maxHeight = CRM_Core_BAO_Setting::getItem(CIVICRM_IMAGEVALIDATE_SETTINGS_GROUP, 'maxHeight');
 
-  if ($formName == 'CRM_Profile_Form_Edit') {
+  if ($formName == 'CRM_Profile_Form_Edit' || $formName == 'CRM_Contact_Form_Contact') {
     foreach ($files as $key => $val) {
       if (in_array($val['type'], $mimeType)) {
         list($width, $height, $type, $attr) = getimagesize($val['tmp_name']);
