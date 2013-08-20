@@ -17,8 +17,8 @@ function imagevalidate_civicrm_config(&$config) {
     $civicrm_setting[CIVICRM_IMAGEVALIDATE_SETTINGS_GROUP] = array(
       'minWidth' => 0,
       'minHeight' => 0,
-      'maxWidth' => 2000,
-      'minHeight' => 2000,
+      'maxWidth' => 3000,
+      'maxHeight' => 3000,
     );
   }
 
